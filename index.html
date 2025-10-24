@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dijital Planlayıcı</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="apple-touch-icon" href="./icons/icon-512.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>🗓️ Dijital Planlayıcı</h1>
+    <nav class="tabs" role="tablist">
+      <button data-tab="gunluk" aria-selected="true">Günlük</button>
+      <button data-tab="haftalik">Haftalık</button>
+      <button data-tab="hedefler">Hedefler</button>
+      <button data-tab="ayarlar">Ayarlar</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- GÜNLÜK -->
+    <section id="tab-gunluk" class="tab active">
+      <h2>Günlük Notlar</h2>
+      <label class="field">
+        <span>Bugün:</span>
+        <textarea id="gunluk-not" data-persist rows="10" placeholder="Bugün neler yaptım?"></textarea>
+      </label>
+      <div class="row">
+        <label class="field grow">
+          <span>Yapılacaklar</span>
+          <textarea id="todo" data-persist rows="8" placeholder="• ..."></textarea>
+        </label>
+        <label class="field grow">
+          <span>Notlar</span>
+          <textarea id="notes" data-persist rows="8" placeholder="Serbest notlar"></textarea>
+        </label>
+      </div>
+    </section>
+
+    <!-- HAFTALIK -->
+    <section id="tab-haftalik" class="tab">
+      <h2>Haftalık Plan</h2>
+      <div class="grid-7">
+        <div class="day"><h3>Pzt</h3><textarea id="w1" data-persist rows="10"></textarea></div>
+        <div class="day"><h3>Sal</h3><textarea id="w2" data-persist rows="10"></textarea></div>
+        <div class="day"><h3>Çar</h3><textarea id="w3" data-persist rows="10"></textarea></div>
+        <div class="day"><h3>Per</h3><textarea id="w4" data-persist rows="10"></textarea></div>
+        <div class="day"><h3>Cum</h3><textarea id="w5" data-persist rows="10"></textarea></div>
+        <div class="day"><h3>Cmt</h3><textarea id="w6" data-persist rows="10"></textarea></div>
+        <div class="day"><h3>Paz</h3><textarea id="w7" data-persist rows="10"></textarea></div>
+      </div>
+    </section>
+
+    <!-- HEDEFLER -->
+    <section id="tab-hedefler" class="tab">
+      <h2>Hedefler</h2>
+      <label class="field">
+        <span>Yıllık Hedefler</span>
+        <textarea id="goals-year" data-persist rows="8" placeholder="Büyük taşlar..."></textarea>
+      </label>
+      <label class="field">
+        <span>Aylık Hedefler</span>
+        <textarea id="goals-month" data-persist rows="8" placeholder="Bu ay şunları tamamla..."></textarea>
+      </label>
+    </section>
+
+    <!-- AYARLAR -->
+    <section id="tab-ayarlar" class="tab">
+      <h2>Ayarlar</h2>
+      <div class="row">
+        <label class="switch">
+          <input id="theme-toggle" type="checkbox" />
+          <span> Koyu tema</span>
+        </label>
+      </div>
+
+      <h3>Veri İşlemleri (Offline)</h3>
+      <div class="row wrap">
+        <button id="btn-export">Dışa Aktar (.json)</button>
+        <label class="btn-like">
+          <input id="file-import" type="file" accept="application/json" hidden />
+          <span>İçe Aktar (.json)</span>
+        </label>
+        <button id="btn-clear" class="danger">Tüm Veriyi Temizle</button>
+      </div>
+
+      <h3>Kurulum</h3>
+      <p>Uygulama gibi ana ekrana kurmak için:</p>
+      <ul>
+        <li><b>Android</b>: Menü → <i>Ana ekrana ekle</i> (veya adres çubuğundaki “Yükle” simgesi).</li>
+        <li><b>iPhone/iPad</b>: Paylaş → <i>Ana Ekrana Ekle</i>.</li>
+        <li><b>Masaüstü Chrome/Edge</b>: Adres çubuğundaki “Yükle” simgesi.</li>
+      </ul>
+      <button id="btn-install" class="primary" hidden>Uygulamayı Yükle</button>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>© <span id="yil"></span> Dijital Planlayıcı • Offline & PWA</small>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+</body>
+</html>
