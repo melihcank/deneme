@@ -1,0 +1,54 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #6b7280;
+  --brand: #1976d2;
+  --border: #e5e7eb;
+  --card: #f8fafc;
+}
+:root.dark {
+  --bg: #0b0f14;
+  --fg: #e5e7eb;
+  --muted: #9ca3af;
+  --brand: #90caf9;
+  --border: #1f2937;
+  --card: #131a22;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji"; }
+h1, h2, h3 { margin: .2rem 0 .6rem; }
+textarea { width: 100%; padding: .75rem; border-radius: .5rem; border: 1px solid var(--border); background: var(--card); color: var(--fg); resize: vertical; }
+label.field { display: block; margin: 1rem 0; }
+label.field > span { display:block; color: var(--muted); font-size: .9rem; margin-bottom: .25rem; }
+
+.app-header { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--border); padding: .75rem 1rem; }
+.app-header h1 { font-size: 1.1rem; margin: 0 0 .5rem; }
+.tabs { display: flex; gap: .5rem; flex-wrap: wrap; }
+.tabs button { border: 1px solid var(--border); background: var(--card); padding: .5rem .75rem; border-radius: .5rem; cursor: pointer; color: var(--fg); }
+.tabs button[aria-selected="true"] { border-color: var(--brand); outline: 2px solid var(--brand); }
+
+main { padding: 1rem; max-width: 1100px; margin: 0 auto; }
+.tab { display: none; }
+.tab.active { display: block; }
+.row { display: flex; gap: 1rem; align-items: center; }
+.row.wrap { flex-wrap: wrap; }
+.grow { flex: 1; }
+.grid-7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: .75rem; }
+.day { display: flex; flex-direction: column; gap: .5rem; }
+.day h3 { margin: 0; font-size: .95rem; color: var(--muted); }
+
+.app-footer { position: sticky; bottom: 0; background: var(--bg); border-top: 1px solid var(--border); padding: .5rem 1rem; text-align: center; }
+
+button, .btn-like { border: 1px solid var(--border); background: var(--card); color: var(--fg); padding: .6rem .8rem; border-radius: .5rem; cursor: pointer; }
+button.primary { background: var(--brand); color: #fff; border-color: var(--brand); }
+button.danger { background: #ef4444; color: #fff; border-color: #ef4444; }
+.btn-like { display: inline-flex; align-items: center; }
+
+.switch { display: inline-flex; align-items: center; gap: .5rem; padding: .3rem .5rem; border: 1px solid var(--border); border-radius: .5rem; background: var(--card); }
+
+@media (max-width: 900px) {
+  .grid-7 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid-7 { grid-template-columns: 1fr; }
+}
